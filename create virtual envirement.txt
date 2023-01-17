@@ -1,0 +1,7 @@
+conda env list
+conda create -n sentimentpnn python
+conda env list
+pip install  --user ipykernel
+python -m ipykernel install --user --name=sentimentpnn
+
+deactivate
