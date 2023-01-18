@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sentiment Analysis</title>
+    <style>
+        /* Add some styles for the form and heading */
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 48px;
+        }
+        
+        form {
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #ccc;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-size: 18px;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        /* Add some styles for the sentiment section */
+        
+        .sentiment {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .sentiment p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Add some styles for positive sentiment */
+        
+        .sentiment p.positive {
+            color: green;
+        }
+        /* Add some styles for neutral sentiment */
+        
+        .sentiment p.neutral {
+            color: blue;
+        }
+        /* Add some styles for negative sentiment */
+        
+        .sentiment p.negative {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="review" rows="5" cols="50" placeholder="Enter your review here"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="sentiment">
+        <h2>Sentiment:</h2>
+        {% if sentiment %}
+        <p>{{ sentiment }}</p>
+        {% endif %}
+</body>
+
+</html>
